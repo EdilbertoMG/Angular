@@ -13,36 +13,36 @@ export class SwitchesComponent implements OnInit {
     genero: [ 'M', Validators.required ],
     notificaciones: [ true, Validators.required ],
     condiciones: [ false, Validators.requiredTrue ]
-  })
+  });
 
   persona = {
     genero: 'F',
-    notificaciones: true
+    notificaciones: true,
   }
+
 
   constructor( private fb: FormBuilder ) { }
 
   ngOnInit() {
-    this.miFormulario.reset({
+    this.miFormulario.reset({ 
       ...this.persona,
       condiciones: false
     });
 
-    // this.miFormulario.valueChanges.subscribe( form => {
-    //   delete form.condiciones;
-      this.miFormulario.valueChanges.subscribe( ({ condiciones, ...rest}) => {
+    this.miFormulario.valueChanges.subscribe( ({ condiciones, ...rest }) => {
+      // delete form.condiciones;
       this.persona = rest;
-    });
+    })
+
   }
 
-  guradr(){
+  guardar() {
 
     const formValue = { ...this.miFormulario.value };
     delete formValue.condiciones;
 
     this.persona = formValue;
-    console.log(formValue);
-    
+
   }
 
 }

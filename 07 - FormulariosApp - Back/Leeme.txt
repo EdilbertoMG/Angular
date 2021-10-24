@@ -1,0 +1,2 @@
+Ingresa a este modulo de node para iniciar la base de datos
+https://www.npmjs.com/package/json-server
